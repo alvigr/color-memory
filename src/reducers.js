@@ -48,6 +48,15 @@ const reset = (state, action) => {
   return shuffle(tiles);
 };
 
+const finish = (state, action) => {
+  return state.map(tile => {
+    return {
+      ...tile,
+      isOpen: true,
+    };
+  });
+};
+
 const tiles = (state = [], action) => {
   switch (action.type) {
     case 'OPEN_TILE':
@@ -56,6 +65,8 @@ const tiles = (state = [], action) => {
       return checkPair(state, action);
     case 'RESET':
       return reset(state, action);
+    case 'FINISH':
+      return finish(state, action);
     default:
       return state; 
   }

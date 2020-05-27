@@ -18,3 +18,9 @@ export const checkPair = indexes => (
     indexes,
   }
 );
+
+export const finish = () => (
+  {
+    type: 'FINISH'
+  }
+);

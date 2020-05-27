@@ -144,4 +144,36 @@ describe('game reducer', () => {
       reducer([], { type: 'RESET', numOfTiles: 4 })
     ).toHaveLength(4)
   });
+
+  it('should handle FINISH', () => {
+    expect(
+      reducer(
+        [
+          {
+            isOpen: false,
+            color: '#fff',
+            paired: true,
+          },
+          {
+            isOpen: false,
+            color: '#fff',
+            paired: true,
+          },
+        ],
+        { type: 'FINISH' })
+    ).toEqual(
+      [
+        {
+          isOpen: true,
+          color: '#fff',
+          paired: true,
+        },
+        {
+          isOpen: true,
+          color: '#fff',
+          paired: true,
+        },
+      ]
+    )
+  });
 });

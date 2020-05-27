@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducers';
-import { checkPair } from './actions';
+import { checkPair, finish } from './actions';
 
 export const pairChecker = store => next => action => {
   const tiles = store.getState();
@@ -30,10 +30,23 @@ export const pairChecker = store => next => action => {
   return next(action);
 };
 
+export const finishChecker = store => next => action => {
+  const tiles = store.getState();
+
+  if (action.type === 'CHECK_PAIR') {
+    const isFinish = tiles.filter(t => t.paired).length + 2 === tiles.length;
+    if (isFinish) {
+      return store.dispatch(finish()) 
+    }
+    return next(action)
+  }
+  return next(action);
+};
+
 
 const store = createStore(
   reducer,
-  applyMiddleware(pairChecker)
+  applyMiddleware(pairChecker, finishChecker)
 );
 
 export default store;

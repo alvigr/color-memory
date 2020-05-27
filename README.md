@@ -2,6 +2,8 @@
 
 Game - find the pair colors!
 
+Live demo - [alvigr.github.io](https://alvigr.github.io/index.html)
+
 ## Available Scripts
 
 In the project directory, you can run:

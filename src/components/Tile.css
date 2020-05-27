@@ -1,0 +1,33 @@
+.scene {
+  width: 100px;
+  height: 100px;
+  margin: 4px;
+  perspective: 300px;
+  border-radius: 3px;
+}
+
+.tile {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 0.5s;
+  border-radius: 3px;
+}
+
+.tile.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.tile_face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 3px;
+}
+.tile_face--back {
+  transform: rotateY(180deg);
+}

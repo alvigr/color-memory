@@ -1,0 +1,12 @@
+.tiles-container {
+  width:648px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.tiles-area {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
